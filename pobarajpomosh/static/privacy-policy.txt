@@ -1,0 +1,77 @@
+Политика за приватност на AndroMeta
+
+На Speak Out, достапен од speakapp.mk, еден од нашите главни приоритети е приватноста на нашите посетители. Овој документ за политика на приватност содржи типови на информации што се собираат и снимаат од Speak Out и како ги користиме.
+
+Ако имате дополнителни прашања или барате повеќе информации за нашата политика за приватност, не двоумете се да не контактирате преку е-пошта на andrometa1e@gmail.com
+
+Логови
+
+Зборувањето оди по стандардна процедура за користење на лог датотеки. Овие фајлови чуваат информации за посетителите кога посетуваат веб-страници. Сите хостинг компании го прават тоа . Информациите собрани со лог датотеки вклучуваат адреси на интернет протокол (IP), тип на прелистувач, интернет провајдер (ISP), датум и време, референтни / излез страници, а можеби и бројот на кликови. Тие не се поврзани со какви било информации што може да се идентификуваат. Целта на информациите е за анализа на трендовите, администрирање на страницата, следење на движењето на корисниците на веб-страницата и собирање на демографски информации.
+
+Колачиња и веб-сигнали
+
+Како и секоја друга веб-страница, Speak Out користи "колачиња". Овие колачиња се користат за складирање на информации, вклучувајќи ги параметрите на посетителите и страниците на веб-страницата што посетителот ја посетил или посети. Информациите се користат за оптимизирање на искуството на корисниците преку прилагодување на содржината на нашата веб-страница врз основа на видот на пребарувачот на посетителот и / или други информации.
+Политики за приватност
+
+Можете да одберете да ги оневозможите колачињата преку индивидуалните опции на прелистувачот. За да дознаете подетални информации за управување со колачиња со специфични веб прелистувачи, може да се најдат на соодветните веб-страници на прелистувачите. Кои се колачињата?
+Информации за децата
+
+Друг дел од нашиот приоритет е додавање на заштита за децата при користење на интернет. Ги охрабруваме родителите и старателите да ги набљудуваат, да учествуваат и / или да ја следат и насочуваат нивната онлајн активност.
+
+Зборувајте надвор не свесно собира никакви информации за лична идентификација од деца под 13 години. Ако мислите дека вашето дете ги обезбеди овие информации на нашата веб-страница, ние силно ве охрабруваме да контактирате со нас веднаш и ние ќе се потрудиме веднаш отстрани такви информации од нашата евиденција.
+Само приватна политика за приватност
+
+Оваа Политика за приватност се однесува само на нашите онлајн активности и важи за посетителите на нашата веб-страница во врска со информациите што ги споделија и / или собираат во Speak Out. Оваа политика не е применлива за било која информација собрана офлајн или преку канали различни од оваа веб-страница.
+
+Чат и Постови
+
+Со комуникација на волонтер од Speak Out или објавување на некој пост се согласувате дека ние можеме да ги чуваме пораките и постовите и да ги употребуваме за кревање свест во нашите кампањи или истражувања. Постовите ќе бидат објавени под всевдонимот со кој сте регистрирани, додека чатовите ќе бидат прикриени 2те страни.
+
+Со користење на нашата веб-страница, апликација вие се согласувате со нашата Политика за приватност.
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------
+
+
+AndroMeta Privacy Policy
+
+Speak Speak, available from speakapp.mk, one of our top priorities is the privacy of our visitors. This Privacy Policy document contains the types of information collected and recorded by Speak Out and how we use them.
+
+If you have further questions or are looking for more information about our privacy policy, do not hesitate to contact us by email to andrometa1e@gmail.com
+
+Logs
+
+Speaking goes through a standard procedure for using log files. These files store information about visitors when they visit websites. All hosting companies do it. Information collected by log files includes Internet Protocol (IP) addresses, browser type, ISP, date and time, reference / output pages, and possibly the number of clicks. They are not related to any information that can be identified. The purpose of the information is to analyze the trends, administer the site, monitor the movement of users on the site and collect demographic information.
+
+Cookies and web alerts
+
+Like any other website, Speak Out uses cookies. These cookies are used to store information, including the parameters of the visitors and the pages of the website the visitor has visited or visited. The information is used to optimize the experience of users by adjusting the content of our website based on the visitor's browser type and / or other information.
+Privacy Policies
+
+You can choose to disable cookies through the individual browser options. To learn more about managing cookies with specific web browsers, you can find them on the relevant browsers' websites. What are the cookies?
+Information for children
+
+Another part of our priority is the addition of child protection when using the Internet. We encourage parents and guardians to observe, participate and / or track and direct their online activity.
+
+Speaking outside does not consciously collect any personal identification information from children under 13 years of age. If you think your child has provided this information to our website, we strongly encourage you to contact us immediately and we will do our best to immediately remove such information from our records.
+Only a private privacy policy
+
+This Privacy Policy applies only to our online activities and applies to visitors on our website regarding the information they shared and / or collected in Speak Out. This policy is not applicable to any information collected offline or through channels other than this website.
+
+Chat and Posts
+
+By communicating with a Speak Out volunteer or publishing a post, you agree that we can keep the messages and posts and use them to raise awareness in our campaigns or research. Postings will be published under the account you are registered with, while the chats will be hidden by the two sides.
+
+By using our website, app you agree to our Privacy Policy.
+
+
+

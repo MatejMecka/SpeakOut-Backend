@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>SpeakOut</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="GOxzfnJKFWOyXgrqCG4w_Sp3y578Lvy4C89H6Oa0fUM" />
+        <meta name="Description" content="Имаш ли и ти твоја приказна?">
+
+    <!-- Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
+
+
+    <link href="common-css/ionicons.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="common-css/jquery.classycountdown.css" />
+
+    <link href="static/css/styles-index.css" rel="stylesheet">
+
+    <link href="static/css/responsive.css" rel="stylesheet">
+
+    <!-- Open Graph Properties -->
+    <meta property="og:title" content="SpeakOut" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url_for(request.endpoint) }}" />
+    <meta property="og:image" content="{{ url_for('static', filename='images/ZirafaKrugYellow.png') }}" />
+    <meta property="og:description" content="Имаш ли и ти твоја приказна? "/>
+
+    <!-- favicon & app stuff -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}" sizes="16x16">
+    <meta name="theme-color" content="#FDAA2A">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/android-chrome-192x192.png') }}" sizes="192x192">
+
+</head>
+<body>
+
+    <div class="main-area center-text" style="background-image:url('https://images.unsplash.com/photo-1455636820250-908db9925403?ixlib=rb-0.3.5&s=f2cfecf5fed2864bf9bc7992de2d4d0a&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'); background-position: center center;">
+
+        <div class="display-table">
+            <div class="display-table-cell">
+
+                <h1 class="title font-white"><b>Speak Out!</b></h1>
+                <p class="desc font-white">Дали некогаш си бил или се уште си жртва на насилство? Сакаш да се советуваш или едноставно да споделиш? Не си сам/а и има кој да ти помогне. Приклучи се кон нашата заедница за заедно да му кажеме големо НЕ на насилството! Од нас ве дели еден клик на </p>
+
+                <a class="notify-btn" href="https://play.google.com/store/apps/details?id=com.andrometa.speakout"><b>Google Play</b></a>
+                <a class="notify-btn" href="/gostuvanja" style="margin-left: 1%;margin-top: 0.5%;"><b>Медиумски Гостувања</b></a>
+
+                <ul class="social-btn font-white">
+                    <li><a href="https://www.facebook.com/speakoutappmk/">Facebook</a></li>
+                    <li><a href="https://instagram.com/speakoutapp">Instagram</a></li>
+                </ul><!-- social-btn -->
+            </div><!-- display-table -->
+
+        </div><!-- display-table-cell -->
+    </div><!-- main-area -->
+</body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131319557-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131319557-1');
+</script>
+</html>
+

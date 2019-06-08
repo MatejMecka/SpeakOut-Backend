@@ -1,0 +1,17 @@
+Flask
+Flask-Migrate
+Flask-WTF
+flask_login
+SQLAlchemy
+Flask-Testing
+blinker
+sentry-sdk[flask]==0.5.5
+passlib
+sentry-sdk
+marshmallow
+marshmallow-sqlalchemy
+flask_marshmallow
+slackclient
+flask-socketio
+requests
+websocket-client

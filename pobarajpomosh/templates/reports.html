@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar navi bg-dark">
+
+  <a class="navbar-brand" href="/">SpeakOut</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="dashboard">Dashboard<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="reports">Reports<span class="sr-only">(current)</span></a>
+      </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item active text-right">
+          <a href="#" class="nav-link" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light"> Change Theme</a>
+        </li>
+        <li class="nav-item active text-right">
+          <a class="nav-link" href="/auth/logout">Logout<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active text-right">
+          <a class="nav-link" href="/">Hello {{ current_user.username }} !<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+  </div>
+ </nav>
+ </nav> 
+
+<h1>Flagged Posts:</h1>
+{% for post in posts %}
+<div class="cardmdl">
+	<div class="mdl-card mdl-shadow--2dp">
+	  <div class="mdl-card__title">
+	    <h2 class="mdl-card__title-text">{{post['title']}}</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+	  		{{post['body']}}
+          <br>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--red" data-token="{{ current_user.token }}" id="deletePost" onclick="deletePost({{ post['id'] }})">Delete Post</button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--green" data-token="{{ current_user.token }}" id="approvePost" onclick="approvePost({{ post['id'] }})"> Approve Post</button>
+	  </div>
+	</div>
+</div>
+{% endfor %}
+
+    <hr></hr>
+
+    <h1>Flagged Comments:</h1>
+{% for comment in comments %}
+<div class="cardmdl">
+	<div class="mdl-card mdl-shadow--2dp">
+	  <div class="mdl-card__title">
+	    <h2 class="mdl-card__title-text">Comment Report!</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+	  		{{comment['body']}}
+          <br>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--red" data-token="{{ current_user.token }}" id="deleteComment" onclick="deleteComment({{ comment['id'] }})">Delete Comment</button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--green" data-token="{{ current_user.token }}" id="approveComment" onclick="approveComment({{ comment['id'] }})"> Approve Comment</button>
+	  </div>
+	</div>
+</div>
+{% endfor %}
+
+
+
+{% endblock %}

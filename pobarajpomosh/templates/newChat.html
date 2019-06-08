@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title>Чат со АндроМета</title>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+        <script type="text/javascript" src="https://speakapp.mk/static/scripts.js"></script>
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://speakapp.mk/static/css/chat.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </head>
+    <body>
+        <ul id="chat" class="mdl-list"></ul>
+        <div class="sendMessage">
+        <!-- Simple Textfield -->
+        <form action="#">
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="text">
+                <label class="mdl-textfield__label" for="text1">Message here</label>
+              </div>
+          
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons" id="send">send</i>
+            </button>
+          
+            </form>
+        </div>
+    </body>
+<script type="text/javascript" charset="utf-8">
+            // Define HTML Properties
+            var socket;
+            var chat = document.getElementById('chat')
+
+            function getCookie(name) {
+              var nameEQ = name + "=";
+              var ca = document.cookie.split(';');
+              for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+              }
+              return null;
+            }
+
+            // Get Information to make a Connection
+            var username;
+            let token = getCookie('token')
+            let room = getCookie('room')
+
+            // Get Username using Fetch
+            // Todo put in scripts.js one day...
+            const url = window.location.origin + '/auth/api/userinfo'
+            const chatHistoryURL = window.location.origin + `/volunteers/api/messages/list/user?token=${token}&room=${room}&length=10000`
+            const postData = {'token': `${token}`}
+
+            // Get Username for User
+            fetch(url, {
+                method: 'post',
+                body: JSON.stringify(postData),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data)
+                dat = JSON.parse(data)
+                username = dat['username']
+            });
+
+            // Download Old Message
+            // Todo also move this shit to scripts.js
+            fetch(chatHistoryURL, {
+                method: 'get',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                // Display Old Messages
+                console.log(data)
+                dat = JSON.parse(data)
+                messages = dat['messages'][0]
+                for(var i=0; i < messages.length; i++){
+                    // Add Each Chat bubble
+                    let message = document.createElement('li')
+                    let messageContent = document.createElement('span')
+                    message.appendChild(messageContent)
+                    messageContent.classList.add('mdl-list__item-primary-content')
+                    let date = new Date(messages[i]['created'])
+                    let today = date.toLocaleString()
+
+                    message.classList.add("mdl-list__item", "mdl-list__item--two-line");
+                    // It Means user sent this
+                    if(messages[i]['volunteer'] === 'none'){
+                        message.classList.add("me");
+                        messageContent.innerHTML = `<span>${messages[i]['message']}</span><span class="mdl-list__item-sub-title"> ${today} ${username}</span>`
+                    }
+                    else {
+                        message.classList.add("him");
+                        messageContent.innerHTML = `<span>${messages[i]['message']}</span> <span class="mdl-list__item-sub-title"> ${today}</span>`
+                    }
+
+                    chat.appendChild(message)
+
+                }
+
+            });
+
+
+            $(document).ready(function(){
+                // Connect to Socket
+                socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+                // Connect to channel
+                socket.on('connect', function() {
+                    socket.emit('joined', username, room , username);
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                });
+
+                socket.on('status', function(data) {
+                    let message = document.createElement('li')
+                    message.classList.add("mdl-list__item", "mdl-list__item--two-line", "him");
+                    let messageContent = document.createElement('span')
+                    message.appendChild(messageContent)
+                    messageContent.classList.add('mdl-list__item-primary-content')
+
+                    let date = new Date()
+                    let today = date.toLocaleString()
+
+
+                    messageContent.innerHTML = `<span>${data.msg}</span><span class="mdl-list__item-sub-title"> ${today} </span>`
+                    chat.appendChild(message)
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+
+                });
+
+                socket.on('message', function(data) {
+                    let message = document.createElement('li')
+                    let messageContent = document.createElement('span')
+                    messageContent.classList.add('mdl-list__item-primary-content')
+                    message.classList.add("mdl-list__item", "mdl-list__item--two-line");
+                    let date = new Date()
+                    let today = date.toLocaleString()
+                    // This is a Message from us
+ 		            if(data.username === username){
+                        messageContent.innerHTML = `${data['msg']}<br><br><span class="mdl-list__item-sub-title"> ${today} ${data.username}</span>`;
+                        message.classList.add("me");
+                    }
+                    else{
+                        messageContent.innerHTML = `${data['msg']}<br><br><span class="mdl-list__item-sub-title"> ${today}</span>`;
+                        message.classList.add("him");
+                    }
+	            message.appendChild(messageContent)
+                    chat.appendChild(message)
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                });
+
+
+                // If Enter was clicked here
+                $('#text').keypress(function(e) {
+                    var code = e.keyCode || e.which;
+                    if (code == 13) {
+                        text = $('#text').val();
+                        $('#text').val('');
+                        socket.emit('text', {msg: text}, room , username);
+                    }
+                });
+
+
+                // If Send Button was clicked
+                $('#send').click(function(){
+                   text = $('#text').val();
+                    $('#text').val('');
+                    socket.emit('text', {msg: text}, room , username);
+                });
+
+            });
+        </script>
+</html>
+

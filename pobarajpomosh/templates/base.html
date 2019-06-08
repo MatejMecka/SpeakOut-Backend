@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        {%block head%}
+        <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+                <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <title>SpeakOut</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <meta name="google-site-verification" content="GOxzfnJKFWOyXgrqCG4w_Sp3y578Lvy4C89H6Oa0fUM" />
+        <meta name="Description" content="Имаш ли и ти твоја приказна?">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131319557-1"></script>
+        <!-- Open Graph Properties -->
+        <meta property="og:title" content="SpeakOut" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ url_for(request.endpoint) }}" />
+        <meta property="og:image" content="{{ url_for('static', filename='images/ZirafaKrugYellow.png') }}" />
+        <meta property="og:description" content="Имаш ли и ти твоја приказна? "/>
+
+        <!-- favicon & app stuff -->
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}" sizes="32x32">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}" sizes="16x16">
+        <meta name="theme-color" content="#FDAA2A">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/favicon.ico') }}">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/android-chrome-192x192.png') }}" sizes="192x192">
+
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-131319557-1');
+        </script>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+    <div class="alert {{category}}" role="alert">
+        {{message}}
+    </div>
+  {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+        {% endblock %}
+        </head>
+    <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+      <script>
+            // Coming Soon for the General Audience as well :)
+            var mode = window.localStorage.getItem('mode')
+            if(mode == "dark"){
+                var body = document.querySelector('body');
+                body.className += 'dark'
+            }
+        </script>
+</html>

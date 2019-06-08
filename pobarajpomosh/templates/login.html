@@ -1,0 +1,23 @@
+{% extends "base.html" %}                                                                                                           $
+{% block content %}
+
+  <body class="text-center signin-body" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;dpr=1&amp;auto=format&amp;cs=tinysrgb');background-repeat: no-repeat;/* width: 100%; */background-size: cover;">
+    <form method="POST" class="form-signin">
+    {{ form.csrf_token }}
+      
+      <h1 class="h3 mb-3 font-weight-normal" style="
+    color: white;
+">Please sign in</h1>
+        {{ form.username.label(class="sr-only") }}
+        {{ form.username(class="form-control", id="inputEmail") }}
+
+        {{ form.password.label(class="sr-only") }}
+        {{ form.password(class="form-control", id="inputPassword") }}
+
+      </div>
+      {{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+
+    </form>
+  
+
+{% endblock %}
